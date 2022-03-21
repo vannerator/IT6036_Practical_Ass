@@ -10,14 +10,14 @@ def home(request):
     return render(request, 'index.html')
 
 
-def signin(request):
-    return render(request, 'signin.html')
+def login(request):
+    return render(request, 'login.html')
 
 """
 The classes defined below are class based view (CBV).
 
 if you use ListView, you have to define the corresponding model
-(decalred in models.py under home). As ListView is used to do the
+(declared in models.py under home). As ListView is used to do the
 interaction with Database.
 """
 

@@ -9,7 +9,7 @@
     <ul class="list-group h3">
         {% for agent in agents %}
         <li class="list-group-item">
-            <strong>{{agent.last_name|capfirst}} {{agent.first_name|capfirst}}</strong> - {{agent.provider}}
+            <strong>{{agent.first_name|capfirst}} {{agent.last_name|capfirst}}</strong> - {{agent.provider}}
         </li>
         {% endfor %}
     </ul>

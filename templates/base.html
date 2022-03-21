@@ -51,11 +51,20 @@
                         <a class="nav-link" href="{% url 'agents' %}">Agents</a>
                     </li>
                 </ul>
+                {% if user.is_authenticated %}
+                <p>Hi, {{user.username}}!</p>
                 <button type="button" class="btn btn-default navbar-btn">
-                    <a href="{% url 'signin' %}">
-                        Sign in
+                    <a href="{% url 'logout' %}">
+                        Log out
                     </a>
                 </button>
+                {% else %}
+                <button type="button" class="btn btn-default navbar-btn">
+                    <a href="{% url 'login' %}">
+                        Log in
+                    </a>
+                </button>
+                {% endif %}
             </div>
         </nav>
     </header>
@@ -67,7 +76,7 @@
             {% endblock %}
         </div>
     </main>
-
+    
     <footer class="footer mt-auto py-3 fixed-bottom">
         <div class="container">
             <span class="text-muted">NZ At a Glance is a fictitious brand created by Computer Power Plus, solely for the purpose of training. All products
