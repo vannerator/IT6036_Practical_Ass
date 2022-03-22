@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Account Page{% endblock title %}
+
+{% block content %} 
+    <h2>Account</h2>
+    <br>
+    <p>Username: {{ user.username }}</p>
+    <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <div>
+        <button type="button" class="btn btn-default navbar-btn">
+            <a href="{% url 'change_password' %}">
+                Change Password
+            </a>
+        </button>
+    </div>
+    <br>
+{% endblock content %}

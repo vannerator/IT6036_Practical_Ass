@@ -9,6 +9,9 @@ The classes defined below are function based view (FBV).
 def home(request):
     return render(request, 'index.html')
 
+def account(request):
+    return render(request, 'account.html')
+
 
 def login(request):
     return render(request, 'login.html')

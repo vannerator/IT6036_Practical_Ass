@@ -59,7 +59,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
-        os.path.join(BASE_DIR, 'home/templates'), os.path.join(BASE_DIR, 'accounts/templates')],
+        os.path.join(BASE_DIR, 'home/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +127,5 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = "home"
 
 LOGOUT_REDIRECT_URL = "home"
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

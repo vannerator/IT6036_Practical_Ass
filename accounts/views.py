@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def change_password_done(request):
+    return render(request, 'registration/change_password_done.html')
