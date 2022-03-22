@@ -1,3 +1,9 @@
 from django.contrib import admin
+from home.models import Agent
+from home.models import Tour
+from home.models import Duration
 
-# Register your models here.
+
+admin.site.register(Tour)
+admin.site.register(Agent)
+admin.site.register(Duration)

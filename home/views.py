@@ -38,6 +38,14 @@ class TourListView(ListView):
     # setup how many data to display per page
     paginate_by = 10
 
+class ToursByAgentListView(ListView):
+    queryset = Tour.objects.all().order_by('tour_name')
+
+    template_name = 'tours_by_agent.html'
+
+    context_object_name = 'tours'
+
+    paginate_by = 10
 
 class AgentListView(ListView):
     queryset = Agent.objects.all().order_by('agent_username')
@@ -57,3 +65,10 @@ class TourDetailView(DetailView):
     template_name = 'tour_detail.html'
 
     context_object_name = 'tour'
+
+class AgentDetailView(DetailView):
+    queryset = Agent.objects.all().order_by('provider')
+
+    template_name = 'agent_detail.html'
+
+    context_object_name = 'agent'

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h5 class="card-header">
+        {{ agent.first_name|capfirst }} {{ agent.last_name|capfirst }}
+    </h5>
+
+    <div class="card-body">
+        <h5 class="card-title">
+            Tour Provider
+        </h5>
+        <p class="card-text">
+            {{ agent.provider }}
+        </p>
+
+        <h5 class="card-title">
+            Email
+        </h5>
+        <p class="card-text">
+            {{ agent.email_address }}
+        </p>
+
+        <h5 class="card-title">
+            Phone Number
+        </h5>
+        <p class="card-text">
+            {{ agent.phone_number }}
+        </p>
+    </div>
+</div>
+{% endblock %}
