@@ -22,6 +22,11 @@
             font-size: 3.5rem;
             }
         }
+
+        #profile {
+            color:#e9ecef;
+            padding-right: 1rem;
+        }
         </style>
 
     <link rel="stylesheet" href="{% static 'sticky-footer.css' %}">
@@ -52,7 +57,7 @@
                     </li>
                 </ul>
                 {% if user.is_authenticated %}
-                <p>Hi, {{user.username}}!</p>
+                <a class="nav-link" href="{% url 'account' %}">{{user.username}}</a>
                 <button type="button" class="btn btn-default navbar-btn">
                     <a href="{% url 'logout' %}">
                         Log out
