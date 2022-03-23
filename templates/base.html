@@ -55,6 +55,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'agents' %}">Agents</a>
                     </li>
+                    <!-- link only displays for agents -->
                     {% if user.groups.all.0.name == "Agent" %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'tours_by_agent' %}">Tours By Agent</a>

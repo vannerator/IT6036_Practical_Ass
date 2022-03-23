@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'home.apps.HomeConfig',
     'accounts.apps.AccountsConfig',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -128,4 +129,5 @@ LOGIN_REDIRECT_URL = "home"
 
 LOGOUT_REDIRECT_URL = "home"
 
+# for password reset, as we don't have email server setup
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -29,10 +29,11 @@
         </p>
     </div>
 </div>
+<!-- only authorised users can edit the details -->
 {% if user.username == agent.agent_username or user.groups.all.0.name == "Administrator" %}
-<br>
-<a class="btn btn-lg btn-primary" href="{% url 'agent_edit' agent.id %}">
-    Edit Details
-</a>
+    <br>
+    <a class="btn btn-lg btn-primary" href="{% url 'agent_edit' agent.id %}">
+        Edit Details
+    </a>
 {% endif %}
 {% endblock %}

@@ -1,13 +1,11 @@
 from django.db import models
 from django.urls import reverse
 
-
 class Duration(models.Model):
     duration = models.CharField(max_length=50)
 
     def __str__(self):
         return self.duration
-
 
 class Agent(models.Model):
     # choices is normally a list with tuple element inside
@@ -20,13 +18,14 @@ class Agent(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     agent_username = models.CharField(max_length=30)
-    email_address = models.CharField(max_length=30)
-    phone_number = models.CharField(max_length=15)
+    email_address = models.EmailField(max_length=30) #changed from CharField for built-in email validation
+    phone_number = models.CharField(max_length=30)
     provider = models.CharField(choices=PROVIDER_CHOICES, max_length=30)
 
     def __str__(self):
         return self.first_name + ' - ' + self.last_name + ' - ' + self.provider
     
+    # so that agent detail edit form reidrects to agent page
     def get_absolute_url(self):
         return reverse("agent_detail", kwargs={"pk": self.pk})
 

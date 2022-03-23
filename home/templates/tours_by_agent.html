@@ -7,6 +7,7 @@
         Your Tours
     </div>
     {% for tour in tours %}
+    <!-- only show tours from logged in agent -->
         {% if tour.agent.agent_username == user.username %}
         <div class="card-body">
             <p class="card-text h4">

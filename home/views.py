@@ -2,8 +2,6 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView
 
-from django.urls import reverse
-
 from .models import Tour, Agent
 from .forms import AgentForm
 
@@ -86,5 +84,3 @@ class AgentUpdateView(UpdateView):
     template_name = "agent_edit.html"
     context_object_name = 'agent'
 
-    # def get_success_url(self, **kwargs):
-    #     return reverse("agent_detail")
