@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Duration(models.Model):
@@ -25,7 +26,9 @@ class Agent(models.Model):
 
     def __str__(self):
         return self.first_name + ' - ' + self.last_name + ' - ' + self.provider
-
+    
+    def get_absolute_url(self):
+        return reverse("agent_detail", kwargs={"pk": self.pk})
 
 class Tour(models.Model):
     tour_name = models.CharField(max_length=150)

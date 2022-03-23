@@ -1,7 +1,13 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import UpdateView
+
+from django.urls import reverse
 
 from .models import Tour, Agent
+from .forms import AgentForm
+
+
 
 """
 The classes defined below are function based view (FBV).
@@ -48,7 +54,7 @@ class ToursByAgentListView(ListView):
     paginate_by = 10
 
 class AgentListView(ListView):
-    queryset = Agent.objects.all().order_by('agent_username')
+    queryset = Agent.objects.all().order_by('provider')
 
     # setup template file
     template_name = 'agents.html'
@@ -67,8 +73,18 @@ class TourDetailView(DetailView):
     context_object_name = 'tour'
 
 class AgentDetailView(DetailView):
-    queryset = Agent.objects.all().order_by('provider')
+    queryset = Agent.objects.all()
 
     template_name = 'agent_detail.html'
 
     context_object_name = 'agent'
+
+# view for Agent form
+class AgentUpdateView(UpdateView):
+    queryset = Agent.objects.all()
+    form_class = AgentForm
+    template_name = "agent_edit.html"
+    context_object_name = 'agent'
+
+    # def get_success_url(self, **kwargs):
+    #     return reverse("agent_detail")

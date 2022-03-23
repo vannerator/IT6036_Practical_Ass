@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+<!-- login button on home page if user not logged in -->
+{% if user.is_authenticated %}
+{% else %}
+<div style="text-align:center;">
+    <h4>You are not logged in.</h4>
+    <button type="button" class="btn btn-default navbar-btn">
+        <a href="{% url 'login' %}">
+            Log in
+        </a>
+    </button>
+</div>
+{% endif %}
 <h1 class="mt-5 text-xl-center">Welcome to NZ At A Glance</h1>
 <p class="lead mt-5">You are on the home page of a very basic tourism website that lists tours around new zealand provided by
     various tour
